@@ -1,0 +1,9 @@
+{
+  "name": "AZ CAT Translation Memory",
+  "short_name": "AZ CAT",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F7FFFC",
+  "theme_color": "#0F8F4F",
+  "icons": []
+}
