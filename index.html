@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AZ CAT Translation Memory - Rebuilt</title>
+  <link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">AZ</div>
+        <div>
+          <h1>CAT Translation Memory</h1>
+          <p>نسخة معاد بناؤها للأداء والملفات الكبيرة</p>
+        </div>
+      </div>
+
+      <section class="side-section">
+        <h2>1) الذاكرة</h2>
+        <button id="btnNewMemory" class="primary">ذاكرة جديدة</button>
+        <button id="btnLibrary">مكتبة الذاكرات</button>
+        <select id="memorySelect" class="select" title="اختر ذاكرة"></select>
+        <button id="btnDeleteMemory" class="danger ghost">حذف الذاكرة المحددة</button>
+      </section>
+
+      <section class="side-section">
+        <h2>2) استيراد ذاكرة ترجمة</h2>
+        <button data-import-tm="html">Import HTML TM</button>
+        <button data-import-tm="docx">Import Word DOCX TM</button>
+        <button data-import-tm="zipdocx">Import ZIP Word TM</button>
+        <button data-import-tm="xlsx">Import Excel TM</button>
+        <button data-import-tm="tmx">Import TMX</button>
+      </section>
+
+      <section class="side-section">
+        <h2>3) النص المصدر</h2>
+        <button id="btnImportSource">Import Source File</button>
+        <button id="btnPasteSource">Paste Source Text</button>
+        <button id="btnClearSource" class="ghost">مسح المصدر والنتائج</button>
+      </section>
+
+      <section class="side-section">
+        <h2>4) التحليل والتصدير</h2>
+        <button id="btnAnalyze" class="primary">Analyze Text</button>
+        <button id="btnAcceptBest">Accept Best</button>
+        <button id="btnCopyTarget">Copy Target Draft</button>
+        <button id="btnExportHtml">Export Target HTML</button>
+        <button id="btnExportCsv">Export CSV</button>
+      </section>
+
+      <section class="side-section">
+        <h2>5) البحث</h2>
+        <input id="tmSearch" class="input" placeholder="Search in TM / Concordance">
+        <button id="btnSearchTM">Search in TM</button>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h2 id="activeMemoryTitle">لا توجد ذاكرة محددة</h2>
+          <p id="statusText">جاهز. الواجهة تُحمّل أولاً، ثم تُحمّل الوحدات الثقيلة عند الاستخدام.</p>
+        </div>
+        <div class="stats">
+          <div><span id="statSegments">0</span><small>Segments</small></div>
+          <div><span id="statConfirmed">0</span><small>Confirmed</small></div>
+          <div><span id="statReview">0</span><small>Needs Review</small></div>
+          <div><span id="statNeeds">0</span><small>Needs Translation</small></div>
+          <div><span id="statAverage">0%</span><small>Average</small></div>
+        </div>
+      </header>
+
+      <section class="source-card">
+        <div class="source-head">
+          <h3>Source Text</h3>
+          <button id="sourceClose" title="مسح">×</button>
+        </div>
+        <textarea id="sourceText" placeholder="الصق النص المصدر هنا، أو استورد ملف HTML / Word / Excel / TXT..."></textarea>
+      </section>
+
+      <section class="progress-card">
+        <div class="progress-row">
+          <progress id="progressBar" max="100" value="0"></progress>
+          <span id="progressText">0%</span>
+        </div>
+        <pre id="logBox"></pre>
+      </section>
+
+      <section class="results-card">
+        <div class="results-toolbar">
+          <h3>Results</h3>
+          <div class="pager">
+            <button id="prevPage">السابق</button>
+            <span id="pageInfo">0 / 0</span>
+            <button id="nextPage">التالي</button>
+          </div>
+        </div>
+        <div id="results" class="results"></div>
+      </section>
+    </main>
+  </div>
+
+  <input id="filePicker" type="file" hidden>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
