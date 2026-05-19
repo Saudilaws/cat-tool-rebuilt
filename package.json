@@ -1,0 +1,9 @@
+{
+  "name": "az-cat-translation-memory-rebuilt",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx http-server . -p 8080 -c-1"
+  }
+}
